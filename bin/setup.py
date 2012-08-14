@@ -35,19 +35,20 @@ class ConfigBoundaryApp(splunk.admin.MConfigHandler):
             self.callerArgs.data['organization_id'][0] = ''
 
         self.writeConf('boundary', 'api', self.callerArgs.data)
-        self._installit()
+        install_boundary_py(os.environ.get('SPLUNK_HOME'))
 
-    def _installit(self):
-        """Copies boundary.py to Splunk's bin/scripts directory."""
-        splunk_home = os.environ['SPLUNK_HOME']
-        script_src = os.path.join(
-            splunk_home, 'etc', 'apps', 'splunk_app_boundary', 'bin',
-            'boundary.py')
-        script_dest = os.path.join(splunk_home, 'bin', 'scripts')
-        logging.info(
-            "Copying script_src=%s to script_dest=%s" %
-            (script_src, script_dest))
-        shutil.copy(script_src, script_dest)
+
+def install_boundary_py(splunk_home):
+    """Copies boundary.py to Splunk's bin/scripts directory."""
+    script_src = os.path.join(
+        splunk_home, 'etc', 'apps', 'splunk_app_boundary', 'bin',
+        'boundary.py')
+    script_dest = os.path.join(splunk_home, 'bin', 'scripts')
+
+    logging.info(
+        "Copying script_src=%s to script_dest=%s" %
+        (script_src, script_dest))
+    shutil.copy(script_src, script_dest)
 
 
 if __name__ == '__main__':

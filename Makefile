@@ -64,8 +64,18 @@ upgrade: install
 add_input:
 	$(VAGRANT_CMD) ssh -c 'sudo /opt/splunk/bin/splunk add monitor /var/log -auth admin:changeme'
 
-generate_events:
-	$(VAGRANT_CMD) ssh -c 'logger -t generated ERROR'
+generate_annotation:
+	$(VAGRANT_CMD) ssh -c 'logger -t generated annotation'
+	$(VAGRANT_CMD) ssh -c "sudo /opt/splunk/bin/splunk search 'generated annotation | head 1 | boundary' -auth admin:changeme"
+
+generate_alert:
+	$(VAGRANT_CMD) ssh -c 'logger -t generated alert'
+
+test_search:
+	true
+
+splunk_errors:
+	$(VAGRANT_CMD) ssh -c "sudo /opt/splunk/bin/splunk search 'index=_internal \" error \" NOT debug source=*splunkd.log*' -auth admin:changeme"
 
 clean:
 	rm -rf *.egg* build dist *.pyc *.pyo cover doctest_pypi.cfg nosetests.xml \
