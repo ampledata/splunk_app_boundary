@@ -1,0 +1,15 @@
+# Requirements for splunk_app_boundary
+#
+# Author:: Greg Albrecht <mailto:gba@splunk.com>
+# Copyright:: Copyright 2012 Splunk, Inc.
+# License:: Apache License 2.0 
+#
+
+
+pylint
+pep8
+mock
+nose
+flake8
+coverage
+clonedigger
