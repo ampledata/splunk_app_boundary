@@ -24,6 +24,8 @@ Event Annotation
 
 .. image:: https://raw.github.com/ampledata/splunk_app_boundary/develop/docs/annotate.png
 
+.. image:: https://raw.github.com/ampledata/splunk_app_boundary/develop/docs/graph.png
+
 Saved Search Alert Annotation
 -----------------------------
 
