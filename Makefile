@@ -55,7 +55,7 @@ nosetests:
 
 test: init lint flake8 clonedigger nosetests
 
-install:
+install_app:
 	$(VAGRANT_CMD) ssh -c 'sudo /opt/splunk/bin/splunk install app /vagrant/splunk_app_boundary.spl -update true -auth admin:changeme'
 	$(VAGRANT_CMD) ssh -c 'sudo /opt/splunk/bin/splunk restart'
 
