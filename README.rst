@@ -36,6 +36,12 @@ Saved Search Alert Annotation
 .. image:: https://raw.github.com/ampledata/splunk_app_boundary/develop/docs/alert.png
 
 
+Source
+======
+Splunk Base: http://splunk-base.splunk.com/apps/55950/splunk-app-for-boundary
+
+Github: https://github.com/ampledata/splunk_app_boundary
+
 Author
 ======
 Greg Albrecht <mailto:gba@splunk.com>
