@@ -34,7 +34,7 @@ class ConfigBoundaryApp(splunk.admin.MConfigHandler):
         if self.callerArgs.data['organization_id'][0] in [None, '']:
             self.callerArgs.data['organization_id'][0] = ''
 
-        self.writeConf('boundary', 'api', self.callerArgs.data)
+        self.writeConf('boundary', 'boundary_api', self.callerArgs.data)
         install_boundary_py(os.environ.get('SPLUNK_HOME'))
 
 
