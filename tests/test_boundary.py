@@ -54,8 +54,8 @@ class TestBoundary(unittest.TestCase):
         config = ConfigParser.RawConfigParser()
 
         config.read(self.config_file)
-        config.set('api', 'api_key', rand_api_key)
-        config.set('api', 'organization_id', rand_org_id)
+        config.set('boundary_api', 'api_key', rand_api_key)
+        config.set('boundary_api', 'organization_id', rand_org_id)
 
         with open(self.config_file, 'wb') as cfg:
             config.write(cfg)
