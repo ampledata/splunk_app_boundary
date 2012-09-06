@@ -72,8 +72,8 @@ def get_api_credentials(config_file):
         config = ConfigParser.ConfigParser()
         config.read(config_file)
         api_credentials = (
-            config.get('api', 'api_key'),
-            config.get('api', 'organization_id')
+            config.get('boundary_api', 'api_key'),
+            config.get('boundary_api', 'organization_id')
         )
     return api_credentials
 
